@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "335730825699",
+    "project_id": "codriver--auth",
+    "storage_bucket": "codriver--auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335730825699:android:45b2abe11773f9338068d6",
+        "android_client_info": {
+          "package_name": "com.example.realcodriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335730825699-5nh9ir2ognhjgv4bg9o9mq57j6hu4qhc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_ddpGQVqpHlRs8HwYv8ZAyXBaxTrQ63A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335730825699-5nh9ir2ognhjgv4bg9o9mq57j6hu4qhc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
