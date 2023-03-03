@@ -2,8 +2,6 @@ package com.example.realcodriver
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -18,74 +16,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
 class LoginActivity : AppCompatActivity() {
-
-//    private lateinit var mGoogleSignInClient: GoogleSignInClient
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.login_page)
-//
-//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//            .requestIdToken("335730825699-2b978t22ktgs233c341mjn8pc8bp5p9d.apps.googleusercontent.com")
-//            .requestEmail()
-//            .build()
-//
-//        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
-//
-//        val googleLoginButton = findViewById<Button>(R.id.google_signIn)
-//        googleLoginButton.setOnClickListener {
-//            signIn()
-//        }
-//    }
-//
-//    private fun signIn() {
-//        val signInIntent = mGoogleSignInClient.signInIntent
-//        startActivityForResult(
-//            signInIntent, RC_SIGN_IN
-//        )
-//    }
-//
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if (requestCode == RC_SIGN_IN) {
-//            val task =
-//                GoogleSignIn.getSignedInAccountFromIntent(data)
-//            handleSignInResult(task)
-//        }
-//    }
-//
-//    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
-//        try {
-////            val account = completedTask.getResult(
-////                ApiException::class.java
-////            )
-//            // Signed in successfully
-////            val googleId = account?.id ?: ""
-////            Log.i("Google ID",googleId)
-////            val googleFirstName = account?.givenName ?: ""
-////            Log.i("Google First Name", googleFirstName)
-////            val googleLastName = account?.familyName ?: ""
-////            Log.i("Google Last Name", googleLastName)
-////            val googleEmail = account?.email ?: ""
-////            Log.i("Google Email", googleEmail)
-////            val googleProfilePicURL = account?.photoUrl.toString()
-////            Log.i("Google Profile Pic URL", googleProfilePicURL)
-////            val googleIdToken = account?.idToken ?: ""
-////            Log.i("Google ID Token", googleIdToken)
-//            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-//            startActivity(intent)
-//        } catch (e: ApiException) {
-//            // Sign in was unsuccessful
-//            Log.e(
-//                "failed code=", e.statusCode.toString()
-//            )
-//        }
-//    }
-//
-//    companion object {
-//        const val RC_SIGN_IN = 9001
-//
-//
-//}
 
     lateinit var mGoogleSignInClient: GoogleSignInClient
     private val Req_Code:Int=123
@@ -147,13 +77,4 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-//    override fun onStart() {
-//        super.onStart()
-////        if(GoogleSignIn.getLastSignedInAccount(this)!=null){
-////            startActivity(Intent(this, MainActivity::class.java))
-////            finish()
-////        }
-//        startActivity(Intent(this, MainActivity::class.java))
-//        //finish()
-//    }
 }
