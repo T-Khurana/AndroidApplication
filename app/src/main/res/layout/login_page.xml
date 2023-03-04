@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -18,9 +19,9 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="250dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/google_icon" />
+            android:src="@drawable/codriver_logo_transparent" />
 
 
         <TextView
@@ -29,36 +30,33 @@
             android:includeFontPadding="false"
             android:paddingTop="20sp"
             android:shadowColor="#0E0E0E"
-            android:text="Sign In"
+            android:text="@string/app_name"
             android:textAlignment="center"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="45sp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
             android:shadowColor="#0E0E0E"
-            android:text="Sign-In with Google"
+            android:text="@string/signInPrompt"
             android:textAlignment="center"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="14sp" />
-
-
         <Space
             android:layout_width="match_parent"
             android:layout_height="100dp"/>
 
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/google_signIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/google_icon"
+            android:background="@drawable/button_bg"
+            android:drawableStart="@drawable/google_icon"
             android:elevation="8dp"
-            android:text="Sign In with Google"
-            android:textColor="#fff" />
-
-
+            android:text="@string/signInButton"
+            android:textColor="@color/black"
+            />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,8 +64,8 @@
             android:gravity="center_horizontal"
             android:includeFontPadding="false"
             android:shadowColor="#0E0E0E"
-            android:text="FoxAndroid"
-            android:textColor="#000000"
+            android:text="@string/groupDescription"
+            android:textColor="@color/white"
             android:textSize="14sp" />
 
     </LinearLayout>
