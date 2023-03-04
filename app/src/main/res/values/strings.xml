@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RealCoDriver</string>
+    <string name="app_name">CoDriver</string>
     <string name="summary">Summary</string>
     <string name="analytics">Analytics</string>
     <string name="alerts">Alerts</string>
