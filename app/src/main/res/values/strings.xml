@@ -4,10 +4,34 @@
     <string name="analytics">Analytics</string>
     <string name="alerts">Alerts</string>
     <string name="account">Account</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name= "web_client_id">335730825699-2b978t22ktgs233c341mjn8pc8bp5p9d.apps.googleusercontent.com</string>
+
+<!--    String for Login page-->
     <string name="signInPrompt">Sign-In with Google to continue</string>
     <string name="signInButton">Sign In with Google</string>
     <string name="groupDescription">Group 2023.013 Capstone Project</string>
+
+<!--String for the summary page-->
+    <string name="driverGrade">Driver Grade</string>
+    <string name="excellentGradePlaceholder">Excellent</string>
+    <string name = "rapidAcc">Rapid Accel.</string>
+    <string name = "sharpCorners">Sharp Corners</string>
+    <string name="hardBraking">Hard Braking</string>
+    <string name = "highSpeed">High Speed</string>
+    <string name = "instances">instances</string>
+
+<!--    Strings for analytics Page-->
+    <string name="heartRate">Heart Rate</string>
+    <string name="gps">GPS</string>
+    <string name="speed">Speed</string>
+    <string name="fuelMetrics">Fuel Metrics</string>
+    <string name="acceleration">Acceleration</string>
+    <string name="braking">Braking</string>
+    <string name="steering">Steering</string>
+
+<!--    String for alerts page-->
+    <string name="alertsPlaceholder">You have no new notifications!</string>
 </resources>
