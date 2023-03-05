@@ -22,4 +22,16 @@
     <string name="hardBraking">Hard Braking</string>
     <string name = "highSpeed">High Speed</string>
     <string name = "instances">instances</string>
+
+<!--    Strings for analytics Page-->
+    <string name="heartRate">Heart Rate</string>
+    <string name="gps">GPS</string>
+    <string name="speed">Speed</string>
+    <string name="fuelMetrics">Fuel Metrics</string>
+    <string name="acceleration">Acceleration</string>
+    <string name="braking">Braking</string>
+    <string name="steering">Steering</string>
+
+<!--    String for alerts page-->
+    <string name="alertsPlaceholder">You have no new notifications!</string>
 </resources>
