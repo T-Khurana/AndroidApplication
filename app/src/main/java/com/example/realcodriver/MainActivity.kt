@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
 
                 R.id.account -> {
-                    // Handle favorite icon press
+                    supportFragmentManager.beginTransaction().replace(R.id.frameLayout, CarInfoFragment()).commit()
                     true
                 }
                 else -> false
