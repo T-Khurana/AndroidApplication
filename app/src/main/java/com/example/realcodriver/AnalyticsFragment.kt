@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import com.google.android.material.card.MaterialCardView
 import com.google.android.material.imageview.ShapeableImageView
 class AnalyticsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +18,7 @@ class AnalyticsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_analytics, container, false)
+        val bundle = Bundle()
 
         // get references to the included card layouts
         val card1 = rootView.findViewById<CardView>(R.id.ecg_card)
@@ -61,6 +61,56 @@ class AnalyticsFragment : Fragment() {
         text6.setText(R.string.braking)
         image7.setImageResource(R.drawable.steering)
         text7.setText(R.string.steering)
+
+        card1.setOnClickListener{
+            bundle.putString("selectedAnalytics", "Heart Rate")
+            val tripsListFragment = TripsFragment()
+            tripsListFragment.arguments = bundle
+            val fragmentManager = parentFragmentManager
+            fragmentManager.beginTransaction().replace(R.id.frameLayout, tripsListFragment).addToBackStack(null).commit()
+        }
+        card2.setOnClickListener{
+            bundle.putString("selectedAnalytics", "GPS")
+            val tripsListFragment = TripsFragment()
+            tripsListFragment.arguments = bundle
+            val fragmentManager = parentFragmentManager
+            fragmentManager.beginTransaction().replace(R.id.frameLayout, tripsListFragment).addToBackStack(null).commit()
+        }
+        card3.setOnClickListener{
+            bundle.putString("selectedAnalytics", "Speed")
+            val tripsListFragment = TripsFragment()
+            tripsListFragment.arguments = bundle
+            val fragmentManager = parentFragmentManager
+            fragmentManager.beginTransaction().replace(R.id.frameLayout, tripsListFragment).addToBackStack(null).commit()
+        }
+        card4.setOnClickListener{
+            bundle.putString("selectedAnalytics", "Fuel Metrics")
+            val tripsListFragment = TripsFragment()
+            tripsListFragment.arguments = bundle
+            val fragmentManager = parentFragmentManager
+            fragmentManager.beginTransaction().replace(R.id.frameLayout, tripsListFragment).addToBackStack(null).commit()
+        }
+        card5.setOnClickListener{
+            bundle.putString("selectedAnalytics", "Acceleration")
+            val tripsListFragment = TripsFragment()
+            tripsListFragment.arguments = bundle
+            val fragmentManager = parentFragmentManager
+            fragmentManager.beginTransaction().replace(R.id.frameLayout, tripsListFragment).addToBackStack(null).commit()
+        }
+        card6.setOnClickListener{
+            bundle.putString("selectedAnalytics", "Braking")
+            val tripsListFragment = TripsFragment()
+            tripsListFragment.arguments = bundle
+            val fragmentManager = parentFragmentManager
+            fragmentManager.beginTransaction().replace(R.id.frameLayout, tripsListFragment).addToBackStack(null).commit()
+        }
+        card7.setOnClickListener{
+            bundle.putString("selectedAnalytics", "Steering")
+            val tripsListFragment = TripsFragment()
+            tripsListFragment.arguments = bundle
+            val fragmentManager = parentFragmentManager
+            fragmentManager.beginTransaction().replace(R.id.frameLayout, tripsListFragment).addToBackStack(null).commit()
+        }
 
         return rootView
     }
