@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black">
+    <!--ECG-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_ecg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/slate_primary"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:id="@+id/tripDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tripDatePlaceholder"
+                    android:textColor="@color/white"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    />
+                <TextView
+                    android:id="@+id/tripTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tripTimePlaceholder"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="@color/white"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

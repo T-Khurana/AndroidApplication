@@ -36,11 +36,18 @@
     <string name="alertsPlaceholder">You have no new notifications!</string>
     <string name="title_activity_input_date">InputDateActivity</string>
 
-<!--    Strings used for information page-->
+    <!--    Strings used for information page-->
     <string name="enterInfo">Enter your information to begin</string>
     <string name="firstName">First Name</string>
     <string name="lastName">Last Name</string>
     <string name="carName">Car Name</string>
     <string name="carYear">Car Year</string>
     <string name="myProfile">My Profile</string>
+
+    <!--    Strings used for trips page-->
+    <string name="tripDatePlaceholder">Trip Date Placeholder</string>
+    <string name="tripTimePlaceholder">Trip began: trip time</string>
+    <string name="date_format">%s %s %s</string>
+    <string name="time_format">Trip began: %s:%s</string>
+
 </resources>

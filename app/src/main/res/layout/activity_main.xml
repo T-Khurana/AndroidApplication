@@ -27,6 +27,7 @@
                     android:layout_gravity="center"
                     app:title="@string/app_name"
                     app:titleTextColor="@color/white"
+                    app:titleCentered="true"
                     android:background="@color/slate_primary"
                     app:menu="@menu/action_bar" />
             </com.google.android.material.appbar.AppBarLayout>
