@@ -14,6 +14,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import org.w3c.dom.Text
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -56,6 +58,8 @@ class SummaryFragment : Fragment() {
             }
 
         })
+
+        getCounters()
     }
 
     private fun populateCardView(userInfo: UserInformation){
@@ -69,19 +73,20 @@ class SummaryFragment : Fragment() {
     }
 
     private fun getCounters(){
-        val url = URL("http://localhost:4000/v1/countquery")
+        val url = URL("https://jsonplaceholder.typicode.com/todos/1")
 
-        with(url.openConnection() as HttpURLConnection) {
-            requestMethod = "GET"  // optional default is GET
+        val connection = url.openConnection() as HttpURLConnection
+        connection.requestMethod = "GET"
 
-            println("\nSent 'GET' request to URL : $url; Response Code : $responseCode")
-
-            inputStream.bufferedReader().use {
-                it.lines().forEach { line ->
-                    println(line)
-                }
-            }
+        val bufferedReader = BufferedReader(InputStreamReader(connection.inputStream))
+        val response = StringBuilder()
+        var inputLine: String?
+        while (bufferedReader.readLine().also { inputLine = it } != null) {
+            response.append(inputLine)
         }
+        bufferedReader.close()
+
+        Log.d("HTTP Request Response", response.toString())
     }
 
 }
