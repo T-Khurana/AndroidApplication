@@ -1,14 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DataVisFragment">
+    android:background="@color/black"
+    android:backgroundTint="@color/black"
+    android:id="@+id/scrollViewData">
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart1"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewTop"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="24sp"
+                android:textColor="@color/white"/>
+
+            <ImageView
+                android:id="@+id/imageViewGraph"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/engine_4_3_22_23" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="100dp" />
+
+            <TextView
+                android:id="@+id/textViewBottom"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="24sp"
+                android:textColor="@color/white"/>
+
+            <ImageView
+                android:id="@+id/imageViewGraph2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="200dp" />
+
+            <TextView
+                android:id="@+id/textViewBottom2"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="24sp"
+                android:textColor="@color/white"/>
+
+            <ImageView
+                android:id="@+id/imageViewGraph3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="200dp" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
 
-</FrameLayout>
+</ScrollView>

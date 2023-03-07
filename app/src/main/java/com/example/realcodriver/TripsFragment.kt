@@ -29,7 +29,7 @@ class TripsFragment : Fragment() {
         val bundle = Bundle()
         val linearLayout = view.findViewById<LinearLayout>(R.id.linearLayoutTrips)
 
-        fileNames = mutableListOf("22-February-2023-14-55.csv", "23-February-2023-15-05.csv", "24-February-2023-16-13.csv")
+        fileNames = mutableListOf("04-March-2023-23-22.csv", "17-February-2023-21-27.csv")
 
         Log.d("TAG", "${arguments?.getString("selectedAnalytics")}")
 

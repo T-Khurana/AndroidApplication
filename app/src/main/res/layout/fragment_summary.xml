@@ -96,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/rapidAcc"
                         android:layout_marginBottom="10dp"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
@@ -130,7 +130,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
-                android:id="@+id/high_speed_card"
+                android:id="@+id/heartRateCard"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/slate_primary"
@@ -147,20 +147,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/highSpeed"
+                        android:text="@string/avgHeartRate"
                         android:layout_marginBottom="10dp"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
                         />
 
                     <TextView
+                        android:id="@+id/heartRateCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
-                        android:layout_marginBottom="10dp"
-                        android:textSize="84sp"
+                        android:layout_marginBottom="20dp"
+                        android:textSize="68sp"
                         android:textColor="#028A0F"
                         android:layout_gravity="center"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
@@ -169,8 +170,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/instances"
-                        android:layout_marginBottom="20dp"
+                        android:text="@string/BPM"
+                        android:layout_marginBottom="25dp"
                         android:textSize="20sp"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
@@ -204,22 +205,24 @@
 
                     <!-- Title, secondary and supporting text -->
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sharpCorners"
                         android:layout_marginBottom="10dp"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
                         />
 
                     <TextView
+                        android:id="@+id/sharpCornersCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:layout_marginBottom="10dp"
-                        android:textSize="84sp"
+                        android:textSize="68sp"
                         android:textColor="#028A0F"
                         android:layout_gravity="center"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
@@ -257,23 +260,25 @@
 
                     <!-- Title, secondary and supporting text -->
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/hardBraking"
                         android:layout_marginBottom="10dp"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
                         />
 
                     <TextView
+                        android:id="@+id/hardBrakingCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:layout_marginBottom="10dp"
-                        android:textSize="84sp"
-                        android:textColor="#028A0F"
+                        android:textSize="68sp"
+                        android:textColor="#FDA50F"
                         android:layout_gravity="center"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
                         />

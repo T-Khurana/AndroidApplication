@@ -31,6 +31,9 @@
     <string name="acceleration">Acceleration</string>
     <string name="braking">Braking</string>
     <string name="steering">Steering</string>
+    <string name="avgHeartRate">Avg.Heart Rate</string>
+    <string name="BPM">BPM</string>
+    <string name="Engine">Engine Wear</string>
 
     <!--    String for alerts page-->
     <string name="alertsPlaceholder">You have no new notifications!</string>

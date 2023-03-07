@@ -25,6 +25,7 @@ import java.io.InputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import kotlin.math.floor
 
 class SummaryFragment : Fragment() {
 
@@ -45,10 +46,10 @@ class SummaryFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_summary, container, false)
         carInfoCard = view.findViewById(R.id.carInfoCard)
 
-        val card = view.findViewById<TextView>(R.id.rapid_accel_count)
+        val rapidAccelCard = view.findViewById<TextView>(R.id.rapid_accel_count)
         lifecycleScope.launch {
             val response = withContext(Dispatchers.IO) {
-                val connection = URL("http://10.0.2.2:4000/v1/countquery").openConnection() as HttpURLConnection
+                val connection = URL("http://10.0.2.2:4000/v1/rapidquery").openConnection() as HttpURLConnection
                 connection.requestMethod = "GET"
                 val responseCode = connection.responseCode
                 if (responseCode == HttpURLConnection.HTTP_OK) {
@@ -60,7 +61,70 @@ class SummaryFragment : Fragment() {
             }
 
             response?.let {
-                card.text = response
+                rapidAccelCard.text = response
+            } ?: run {
+                Toast.makeText(context, "Failed to get response", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val heartRateCard = view.findViewById<TextView>(R.id.heartRateCardText)
+        lifecycleScope.launch {
+            val response = withContext(Dispatchers.IO) {
+                val connection = URL("http://10.0.2.2:4000/v1/heartRatequery").openConnection() as HttpURLConnection
+                connection.requestMethod = "GET"
+                val responseCode = connection.responseCode
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    val inputStream = connection.inputStream
+                    convertStreamToString(inputStream)
+                } else {
+                    null
+                }
+            }
+
+            response?.let {
+                heartRateCard.text = floor(response.toDouble()).toString()
+            } ?: run {
+                Toast.makeText(context, "Failed to get response", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val hardBrakesCard = view.findViewById<TextView>(R.id.hardBrakingCardText)
+        lifecycleScope.launch {
+            val response = withContext(Dispatchers.IO) {
+                val connection = URL("http://10.0.2.2:4000/v1/hardbrakesquery").openConnection() as HttpURLConnection
+                connection.requestMethod = "GET"
+                val responseCode = connection.responseCode
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    val inputStream = connection.inputStream
+                    convertStreamToString(inputStream)
+                } else {
+                    null
+                }
+            }
+
+            response?.let {
+                hardBrakesCard.text = response
+            } ?: run {
+                Toast.makeText(context, "Failed to get response", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val sharpTurnsCard = view.findViewById<TextView>(R.id.sharpCornersCardText)
+        lifecycleScope.launch {
+            val response = withContext(Dispatchers.IO) {
+                val connection = URL("http://10.0.2.2:4000/v1/sharpturnsquery").openConnection() as HttpURLConnection
+                connection.requestMethod = "GET"
+                val responseCode = connection.responseCode
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    val inputStream = connection.inputStream
+                    convertStreamToString(inputStream)
+                } else {
+                    null
+                }
+            }
+
+            response?.let {
+                sharpTurnsCard.text = response
             } ?: run {
                 Toast.makeText(context, "Failed to get response", Toast.LENGTH_SHORT).show()
             }

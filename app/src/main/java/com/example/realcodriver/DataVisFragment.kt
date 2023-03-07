@@ -6,8 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SeekBar
-import android.widget.TextView
+import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.github.mikephil.charting.charts.BarChart
@@ -17,15 +16,9 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import com.github.mikephil.charting.model.GradientColor
+import org.w3c.dom.Text
 
 class DataVisFragment : Fragment() {
-
-    private lateinit var barChart : BarChart
-    private lateinit var seekBarX : SeekBar
-    private lateinit var seekBarY : SeekBar
-    private lateinit var tvX : TextView
-    private lateinit var tvY : TextView
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,84 +28,90 @@ class DataVisFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view = inflater.inflate(R.layout.fragment_data_vis, container, false)
+        val analysis : String? = arguments?.getString("selectedAnalytics")
+        val trip : String? = arguments?.getString("selectedTrip")
+        val graph1 : ImageView = view.findViewById(R.id.imageViewGraph)
+        val graph2 : ImageView = view.findViewById(R.id.imageViewGraph2)
+        val graph3 : ImageView = view.findViewById(R.id.imageViewGraph3)
+        val text1 : TextView = view.findViewById(R.id.textViewTop)
+        val text2 : TextView = view.findViewById(R.id.textViewBottom)
+        val text3 : TextView = view.findViewById(R.id.textViewBottom2)
         Log.d("TAG", "Selected Analysis: ${arguments?.getString("selectedAnalytics")}")
         Log.d("TAG", "Selected Trip: ${arguments?.getString("selectedTrip")}")
 
-        barChart = view.findViewById(R.id.chart1)
-//        seekBarX = view.findViewById(R.id.seekBar1)
-//        seekBarY = view.findViewById(R.id.seekBar2)
-//        tvX = view.findViewById(R.id.tvXMax)
-//        tvY = view.findViewById(R.id.tvYMax)
+        if (trip == "04-March-2023-23-22.csv"){
+            if (analysis == "GPS") {Log.d("TAG", "GPS")}
+            else if (analysis == "Fuel Metrics"){
+                text1.text = "Engine (RPM)"
+                graph1.setImageResource(R.drawable.engine_4th_march)
+                text2.text = "Engine Load (%)"
+                graph2.setImageResource(R.drawable.engine_load_4th_march)
+            }
+            else if (analysis == "Speed"){
+                text1.text = "Speed (km/h)"
+                graph1.setImageResource(R.drawable.speed_4th_march)
+                text2.text = "Throttle(%)"
+                graph2.setImageResource(R.drawable.throttle_4th_march)
+            }
+            else if (analysis == "Steering"){
+                text1.text = "Steering Wheel Angle (deg)"
+                graph1.setImageResource(R.drawable.steering_wheel_angle_4th_march)
+                text2.text = "Roll Rate (deg)"
+                graph2.setImageResource(R.drawable.roll_rate_4th_march)
+                text3.text = "Lateral Acceleration (m/s^2)"
+                graph3.setImageResource(R.drawable.lateral_acc_4th_march)
+            }
+            else if (analysis == "Acceleration"){
+                text1.text = "Acceleration (m/s^2)"
+                graph1.setImageResource(R.drawable.acceleration_4th_march)
+                text2.text = "Pitch Rate (deg)"
+                graph2.setImageResource(R.drawable.pitch_rate_4th_march)
+            }
+            else if(analysis == "Braking"){
+                text1.text = "Pitch Rate (deg)"
+                graph1.setImageResource(R.drawable.pitch_rate_4th_march)
+            }
+
+        }else if(trip == "17-February-2023-21-27.csv"){
+            if (analysis == "GPS") {Log.d("TAG", "GPS")}
+            else if (analysis == "Fuel Metrics"){
+                text1.text = "Engine (RPM)"
+                graph1.setImageResource(R.drawable.engine_17th_feb)
+//                text2.text = "Engine Load (%)"
+//                graph2.setImageResource(R.drawable.engine)
+            }
+            else if (analysis == "Speed"){
+                text1.text = "Speed (km/h)"
+                graph1.setImageResource(R.drawable.speed_17th_feb)
+                text2.text = "Throttle(%)"
+                graph2.setImageResource(R.drawable.throttle_17th_feb)
+            }
+            else if (analysis == "Steering"){
+                text1.text = "Steering Wheel Angle (deg)"
+                graph1.setImageResource(R.drawable.steering_wheel_angle_17th_feb)
+                text2.text = "Roll Rate (deg)"
+                graph2.setImageResource(R.drawable.roll_rate_17th_feb)
+                text3.text = "Lateral Acceleration (m/s^2)"
+                graph3.setImageResource(R.drawable.lateral_accel_17th_feb)
+            }
+            else if (analysis == "Acceleration"){
+                text1.text = "Acceleration (m/s^2)"
+                graph1.setImageResource(R.drawable.acceleration_17th_feb)
+                text2.text = "Pitch Rate (deg)"
+                graph2.setImageResource(R.drawable.pitch_rate_17th_feb)
+            }
+            else if(analysis == "Braking"){
+                text1.text = "Pitch Rate (deg)"
+                graph1.setImageResource(R.drawable.pitch_rate_17th_feb)
+            }
+
+        }
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        barChart.setDrawBarShadow(false)
-        barChart.setDrawValueAboveBar(true)
-        barChart.description.isEnabled = false
-        barChart.setMaxVisibleValueCount(60)
-        barChart.setPinchZoom(false)
-        barChart.setDrawGridBackground(false)
-
-        val l = barChart.legend
-        l.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM
-        l.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT
-        l.orientation = Legend.LegendOrientation.HORIZONTAL
-        l.setDrawInside(false)
-        l.form = Legend.LegendForm.SQUARE
-        l.formSize = 9f
-        l.textSize = 11f
-        l.xEntrySpace = 4f
-
-        setData(5, 100f)
-    }
-
-    private fun setData(count: Int, range: Float) {
-        val start = 1f
-        val values = ArrayList<BarEntry>()
-        for (i in start.toInt() until start.toInt() + count) {
-            val randomVal = (Math.random() * (range + 1)).toFloat()
-            if (Math.random() * 100 < 25) {
-                values.add(BarEntry(i.toFloat(), randomVal, ResourcesCompat.getDrawable(resources, R.drawable.account, null)))
-            } else {
-                values.add(BarEntry(i.toFloat(), randomVal))
-            }
-        }
-        val set1: BarDataSet
-        if (barChart.data != null && barChart.data.dataSetCount > 0) {
-            set1 = barChart.data.getDataSetByIndex(0) as BarDataSet
-            set1.values = values
-            barChart.data.notifyDataChanged()
-            barChart.notifyDataSetChanged()
-        } else {
-            set1 = BarDataSet(values, "The year 2017")
-            set1.setDrawIcons(false)
-            val startColor1 = ContextCompat.getColor(requireContext(), android.R.color.holo_orange_light)
-            val startColor2 = ContextCompat.getColor(requireContext(), android.R.color.holo_blue_light)
-            val startColor3 = ContextCompat.getColor(requireContext(), android.R.color.holo_orange_light)
-            val startColor4 = ContextCompat.getColor(requireContext(), android.R.color.holo_green_light)
-            val startColor5 = ContextCompat.getColor(requireContext(), android.R.color.holo_red_light)
-            val endColor1 = ContextCompat.getColor(requireContext(), android.R.color.holo_blue_dark)
-            val endColor2 = ContextCompat.getColor(requireContext(), android.R.color.holo_purple)
-            val endColor3 = ContextCompat.getColor(requireContext(), android.R.color.holo_green_dark)
-            val endColor4 = ContextCompat.getColor(requireContext(), android.R.color.holo_red_dark)
-            val endColor5 = ContextCompat.getColor(requireContext(), android.R.color.holo_orange_dark)
-            val gradientFills = ArrayList<GradientColor>()
-            gradientFills.add(GradientColor(startColor1, endColor1))
-            gradientFills.add(GradientColor(startColor2, endColor2))
-            gradientFills.add(GradientColor(startColor3, endColor3))
-            gradientFills.add(GradientColor(startColor4, endColor4))
-            gradientFills.add(GradientColor(startColor5, endColor5))
-            set1.gradientColors = gradientFills
-            val dataSets = ArrayList<IBarDataSet>()
-            dataSets.add(set1)
-            val data = BarData(dataSets)
-            data.setValueTextSize(10f)
-            data.barWidth = 0.9f
-            barChart.data = data
-        }
     }
 }
