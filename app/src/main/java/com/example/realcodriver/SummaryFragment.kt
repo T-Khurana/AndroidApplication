@@ -68,5 +68,20 @@ class SummaryFragment : Fragment() {
         carYearTextView.text = userInfo.carYear
     }
 
+    private fun getCounters(){
+        val url = URL("http://localhost:4000/v1/countquery")
+
+        with(url.openConnection() as HttpURLConnection) {
+            requestMethod = "GET"  // optional default is GET
+
+            println("\nSent 'GET' request to URL : $url; Response Code : $responseCode")
+
+            inputStream.bufferedReader().use {
+                it.lines().forEach { line ->
+                    println(line)
+                }
+            }
+        }
+    }
 
 }
